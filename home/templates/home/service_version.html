@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Service Name</th>
+        <th scope="col">Service Version</th>
+        <th scope="col">Date</th>
+        <th scope="col">Has Micro UI</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for trackmicroservice in trackmicroservices %}
+      <tr>
+        <th scope="row">{{ trackmicroservice.id }}</th>
+        <td>{{ trackmicroservice.service.name }}</td>
+        <td>{{ trackmicroservice.new_version }}</td>
+        <td>{{ trackmicroservice.date }}</td>
+        <td>{{ trackmicroservice.service.has_microui }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
